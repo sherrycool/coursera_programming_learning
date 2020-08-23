@@ -1,0 +1,9 @@
+// write your code here
+var img = new SimpleImage(200,200);
+
+for (var p of img.values()){
+    p.setRed(255);
+    p.setGreen(255);
+    p.setBlue(0);
+}
+print(img);

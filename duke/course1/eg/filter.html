@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Filters on the Web</title>
+    <link rel="stylesheet" type="text/css" href="./filter.css">
+    <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+    <script src="./filter.js"></script>
+  </head>
+  <body>
+    <h1>Filter Fun</h1>
+    <canvas id="can"></canvas>
+    <h2>Load Image</h2>
+    <input type="file" values="Choose Files" id="inputfile" accept="image/*" onchange="inputfile()">
+    <h2>Choose Filter</h2>
+    <input type="button" value="Grayscale" id="gray" onclick="doGray()">
+    <input type="button" value="Red" id="red" onclick="red()">
+    <input type="button" value="Reset Image" id="reset" onclick="resetImage()">
+  </body>
+</html>

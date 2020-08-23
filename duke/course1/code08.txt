@@ -1,0 +1,42 @@
+
+// write your code here
+var blurImg = new SimpleImage("smalllion.jpg");
+
+function generateRandom() {
+    var num = Math.round(Math.random()*10);
+    var j = Math.random();
+    if (j < 0.5){
+        num = num * (-1);
+    }
+    return num;
+}
+
+for (var pixel of blurImg.values()){
+    var judge = Math.random();
+    if (judge > 0.5){
+        var x = pixel.getX();
+        var y = pixel.getY();
+        var x_delta = generateRandom();
+        var y_delta = generateRandom();
+        var x_new = x + x_delta;
+        var y_new = y + y_delta;
+        if (x_new > blurImg.width-1){
+            x_new = blurImg.width-1;
+            //print("x",x, x_delta, x_new);
+        }
+        if (x_new < 0 ){
+            x_new = 0;
+        } 
+        if (y_new > blurImg.height-1){
+            y_new = blurImg.height-1;
+        }
+        if (y_new < 0 ){
+            y_new = 0;
+        } 
+        //print("img:",blurImg.width, blurImg.height)
+        //print("new:",x_new, y_new);
+        blurImg.setPixel(x,y,blurImg.getPixel(x_new,y_new));
+        
+    }
+}
+print(blurImg);

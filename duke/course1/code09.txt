@@ -1,0 +1,46 @@
+// write your code here
+// 调整要隐藏的图片的大小
+function crop(image, width, height) {
+    var imgOut = new SimpleImage(image);
+    imgOut.setSize(width, height);
+    return imgOut;
+}
+
+function clearbbits(pxvar){
+    var x = Math.floor(pxvar / 16) * 16;
+    return x;
+}
+
+function clearbbits2(pxvar){
+    var x = Math.floor(pxvar / 16);
+    return x;
+}
+
+function chop2Hide(img, imgHide) {
+    var imgOut = new SimpleImage(img.width, img.height);
+    imgHide = crop(img, img.width, img.height);
+    for (var px of imgOut.values()){
+        var x = px.getX();
+        var y = px.getY();
+        var px1 = img.getPixel(x,y);
+        var start_red = clearbbits(px1.getRed());
+        var start_green = clearbbits(px1.getGreen());
+        var start_blue = clearbbits(px1.getBlue());
+        var px2 = imgHide.getPixel(x,y);
+        var end_red = clearbbits2(px2.getRed());
+        var end_green = clearbbits2(px2.getGreen());
+        var end_blue = clearbbits2(px2.getBlue());
+        px.setRed(start_red + end_red);
+        px.setGreen(start_green + end_green);
+        px.setBlue(start_blue + end_blue);
+    }
+    return imgOut;
+    
+}
+
+
+var img = new SimpleImage("usain.jpg");
+var imgHide = new SimpleImage("smalluniverse.jpg");
+var imgOut = chop2Hide(img, imgHide);
+print(img);
+print(imgOut);

@@ -1,0 +1,34 @@
+// write your code here
+/* values()
+getWidth()
+getX() and getY()
+setRed(), setGreen(), and setBlue
+*/
+/*1. Start with the image you want to change.
+
+2. Figure out the width of the image.
+
+3. For each pixel in the image:
+
+Get the x-coordinate for that pixel
+If the pixel’s x-coordinate is less than one-third of the image’s width, set the pixel’s red value to 255.
+If the pixel’s x-coordinate is between one-third and two-thirds of the image’s width, set the pixel’s green value to 255.
+If the pixel’s x-coordinate is more than two-thirds of the image’s width, set the pixel’s blue value to 255.
+4. Print the image.*/
+var img = new SimpleImage("hilton.jpg");
+var x = img.getWidth();
+var x1 = x / 3;
+var x2 = x * 2 / 3;
+for (var pixel of img.values()){
+    if(pixel.getX()<x1){
+        pixel.setRed(255);
+    }
+    else if(pixel.getX()<x2){
+        pixel.setGreen(255);
+    }
+    else
+    {
+        pixel.setBlue(255);
+    }
+}
+print(img);

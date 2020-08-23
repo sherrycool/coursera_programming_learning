@@ -1,0 +1,37 @@
+// write your code here
+// write your code here
+// write your code here
+/*Write a function named setBlack that has one parameter pixel (representing a single pixel) and returns pixel with its red, green, and blue components changed so that the pixel’s color is black.
+
+Now you will write another function named addBorder. This function will add a black border to an image, such as in the following example:
+*/
+function setBlack(px){
+    px.setRed(0);
+    px.setGreen(0);
+    px.setBlue(0);
+    return px;
+}
+
+function addBorder(img, border){
+    var width = img.getWidth();
+    var height = img.getHeight();
+    for (var px of img.values()){
+        var x = px.getX();
+        var y = px.getY();
+        //print(x,y);
+        if (x < border || x > width - border){
+            setBlack(px);
+            
+        }
+        if (y < border || y > height - border){
+            setBlack(px);
+            
+        }
+        
+    }
+    return img;
+}
+
+var img = new SimpleImage("smallpanda.png");
+img = addBorder(img, 10);
+print(img);

@@ -1,0 +1,37 @@
+// write your code here
+/*     Write a function that adds three numbers together.
+    Write a function that adds two strings. Remember that addings strings means concatenating, so “a” + “b” is “ab” and “b” + “a” is “ba”.
+    Write a function that prints the width and height of an image.
+    */
+function cube(x){
+    return x*x*x;
+}
+
+var a = 10;
+print(cube(a));
+
+var img = new SimpleImage("drewgreen.png");
+print(img.getWidth());
+print(img.getHeight());
+print(img.getPixel(20,30));
+print(img.getBlue(100,200));
+
+function add3(x, y, z){
+    return x+y+z;
+}
+
+print(add3(1,2,5));
+
+function con(a,b){
+    return a+b;
+}
+var c = "hello";
+var d = " girl";
+print(con(c,d));
+
+function showWidthHeight(img){
+    print(img.getWidth(), img.getHeight());
+}
+
+var image = new SimpleImage("drewgreen.png");
+print(showWidthHeight(image));
